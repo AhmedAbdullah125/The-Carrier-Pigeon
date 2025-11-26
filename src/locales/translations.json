@@ -1,0 +1,14 @@
+{
+  "ar": {
+    "welcome": "مرحباً بك",
+    "login": "تسجيل الدخول",
+    "website_title": "موقع حكومي مسجل لدى هيئة الحكومة الرقمية",
+    "register": "تسجيل حساب جديد"
+  },
+  "en": {
+    "welcome": "Welcome to ",
+    "login": "Login",
+    "website_title": "Government Website Registered with the Digital Government Agency",
+    "register": "Register"
+  }
+}
