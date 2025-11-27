@@ -147,9 +147,9 @@
 }
 
 .main-btn {
-    background-color: #1b8354;
+    background-color: $main;
     color: #ffffff;
-    border-color: #1b8354;
+    border-color: $main;
 
     &:hover {
         background-color: #166845;

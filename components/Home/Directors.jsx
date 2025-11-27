@@ -2,24 +2,30 @@ import React from "react";
 import SectionHeader from "./SectioHeader";
 import Director from "@/public/images/Director.png";
 import Image from "next/image";
+import { t } from "@/lib/i18n";
 
-export default function Directors() {
+export default function Directors({lang}) {
     const directors = {
-        name: "د. خالد العتيبي",
-        title: "رئيس مجلس الإدارة",
-        description: "بخبرة تتجاوز ١٥ عامًا في إدارة الأندية الرياضية وتطوير المشاريع.",
+        name: t(lang, 'director_name'),
+        title: t(lang, 'director_position'),
+        description: t(lang, 'director_bio'),
         image: Director
     }
 
     return (
         <div className="directors-section">
             <div className="container">
-                <SectionHeader title="مجلس الاداره" description="فريق القيادة الذي يشرف على المنصة ويقود استراتيجيات تطوير رياضة سباقات الحمام الزاجل" link="/directors" />
+                <SectionHeader 
+                    title={t(lang, 'directors_title')} 
+                    description={t(lang, 'directors_description')} 
+                    link="/directors" 
+                    lang={lang}
+                />
                 <div className="news-content">
                     {Array.from({ length: 3 }).map((_, index) => (
                         <div key={index} className="news-item">
                             <div className="news-item-img">
-                                <h4 className="title-cont"> {directors.title} </h4>
+                                <h4 className="title-cont">{directors.title}</h4>
                                 <div className="img-cont director-img-cont">
                                     <Image
                                         src={directors.image}
@@ -34,7 +40,6 @@ export default function Directors() {
                             <div className="news-item-content">
                                 <h3>{directors.name}</h3>
                                 <p>{directors.description}</p>
-
                             </div>
                         </div>
                     ))}

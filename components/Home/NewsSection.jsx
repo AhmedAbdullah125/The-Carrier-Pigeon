@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";          // <-- add this
+import Image from "next/image";
 import newsImg from "@/public/images/newsImg.png";
 import SectionHeader from "./SectioHeader";
+import { t } from "@/lib/i18n";
 
-export default function NewsSection() {
+export default function NewsSection({ lang }) {
   const news = {
-    title: "بطولة الرياض السنوية",
-    description:
-      "أُقيمت صباح الجمعة بطولة الرياض لسباقات الحمام الزاجل بمشاركة أكثر من 300 متسابق من مختلف مناطق المملكة، وشهدت تنافسًا قويًا وأجواءً حماسية.",
+    title: t(lang, 'news_title'),
+    description: t(lang, 'news_content'),
     image: newsImg,
     link: "/news/1",
   };
@@ -16,7 +16,12 @@ export default function NewsSection() {
   return (
     <div className="news-section">
       <div className="container">
-        <SectionHeader title="اخر الاخبار" description="تابع أبرز الفعاليات والأنشطة والسباقات الخاصة بالجمعية السعودية" link="/news" />
+        <SectionHeader 
+          title={t(lang, 'latest_news')} 
+          description={t(lang, 'news_description')} 
+          link="/news" 
+          lang={lang} 
+        />
         <div className="news-content">
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} className="news-item">
@@ -24,7 +29,7 @@ export default function NewsSection() {
                 <div className="img-cont">
                   <Image
                     src={news.image}
-                    alt="news"
+                    alt={t(lang, 'latest_news')}
                     width={1000}
                     height={600}
                     className="news-img"
@@ -36,7 +41,7 @@ export default function NewsSection() {
                 <h3>{news.title}</h3>
                 <p>{news.description}</p>
                 <Link href={news.link} className="regular-btn read-more-btn">
-                  اقرأ المزيد
+                  {t(lang, 'read_more')}
                 </Link>
               </div>
             </div>

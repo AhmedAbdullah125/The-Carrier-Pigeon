@@ -6,55 +6,57 @@ import location from "@/public/images/location.svg";
 import calendar from "@/public/images/calender.svg";
 import calenderExpired from "@/public/images/calenderExpired.svg";
 import birdsBg from "@/public/images/birdsBg.png";
-export default function RacingSchedule() {
+import { t } from "@/lib/i18n";
+
+export default function RacingSchedule({ lang }) {
     const schedules = [
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         },
         {
-            title: "بطوله الرياض لسباقات الحمام الزاجل",
-            city: "مدينه الرياض",
-            startDate: "الخميس 15 ابريل",
-            endDate: "الاثنين 20 ابريل 2025"
+            title: t(lang, 'race_riyadh_title'),
+            city: t(lang, 'city_riyadh'),
+            startDate: t(lang, 'race_start_date'),
+            endDate: t(lang, 'race_end_date')
         }
     ];
 
@@ -62,16 +64,17 @@ export default function RacingSchedule() {
         <div className="racing-schedule-section">
             <div className="container">
                 <SectionHeader
-                    title="البرنامج الزمني لسباقات الحمام الزاجل"
-                    description="تابع الجدول الزمني لسباقات الحمام الزاجل وكن أول من يعرف محطات التحدي القادمة في مدن المملكة."
+                    title={t(lang, 'racing_schedule_title')}
+                    description={t(lang, 'racing_schedule_description')}
                     link="/racing-schedule"
+                    lang={lang}
                 />
 
                 <div className="racing-schedule-grid">
                     {schedules.map((schedule, index) => (
-                        <div className="" style={{ backgroundImage: `url(${birdsBg.src})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
-                            <div key={index} className="racing-schedule-card" >
-                                <div className="racing-schedule-item" >
+                        <div className="" key={index} style={{ backgroundImage: `url(${birdsBg.src})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+                            <div className="racing-schedule-card">
+                                <div className="racing-schedule-item">
                                     <div className="racing-schedule-icon">
                                         <Image src={cup} alt="trophy" width={24} height={24} />
                                     </div>

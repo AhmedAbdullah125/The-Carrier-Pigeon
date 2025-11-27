@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-export default function SectionHeader({ title, description, link }) {
+import { t } from "@/lib/i18n";
+export default function SectionHeader({ title, description, link, lang }) {
     return (
         <div className="section-header">
             <div className="r-side">
@@ -10,9 +11,7 @@ export default function SectionHeader({ title, description, link }) {
                 </p>
             </div>
             <div className="l-side">
-                <Link href={link} className="regular-btn">
-                    عرض الكل
-                </Link>
+                <Link href={link} className="regular-btn"> {t(lang, 'show_all')} </Link>
             </div>
         </div>
     )

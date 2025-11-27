@@ -1,8 +1,8 @@
-import './globals.css';
+import '@/src/app/globals.css';
 import '@/src/style/main.css';
 import Header from '@/components/Header/Header';
-// import Footer from '@/components/footer/Footer';
 import ClientProviders from '@/src/utils/providers/ClientProviders';
+import Footer from '@/components/Footer/Footer';
 // import logo from '@/public/images/blue-logo.svg';
 
 export async function generateMetadata() {
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <ClientProviders>
           <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </ClientProviders>
       </body>
     </html>

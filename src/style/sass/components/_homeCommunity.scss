@@ -1,0 +1,60 @@
+.home-community {
+    padding: 0px 0 80px;
+}
+
+.community-content {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.community-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #eeeeee;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        transform: translateY(-4px);
+    }
+}
+
+.community-card-img {
+    position: relative;
+    aspect-ratio: 375/220;
+    overflow: hidden;
+    width: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.community-card-name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #212529;
+    text-align: center;
+}
