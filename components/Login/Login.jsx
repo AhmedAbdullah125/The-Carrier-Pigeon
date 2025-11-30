@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -13,26 +13,28 @@ import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import flag from "@/public/images/flag.svg"
 import Link from "next/link"
+import { t } from "@/lib/i18n"
 
-// Zod validation schema
-const loginSchema = z.object({
-    phone: z
-        .string()
-        .min(1, { message: "رقم الجوال مطلوب" })
-        .regex(/^[0-9]+$/, { message: "يجب أن يحتوي رقم الجوال على أرقام فقط" })
-        .min(9, { message: "رقم الجوال يجب أن يكون 9 أرقام على الأقل" }),
-    password: z
-        .string()
-        .min(1, { message: "كلمة المرور مطلوبة" })
-        .min(6, { message: "كلمة المرور يجب أن تكون 6 أحرف على الأقل" }),
-    country: z
-        .string().min(1, { message: "البلد مطلوب" }),
-})
+const makeLoginSchema = (lang) =>
+    z.object({
+        phone: z
+            .string()
+            .min(1, { message: t(lang, "phone_required") })
+            .regex(/^[0-9]+$/, { message: t(lang, "phone_numbers_only") })
+            .min(9, { message: t(lang, "phone_min_length") }),
+        password: z
+            .string()
+            .min(1, { message: t(lang, "password_required") })
+            .min(6, { message: t(lang, "password_min_length") }),
+        country: z
+            .string().min(1, { message: t(lang, "country_required") }),
+    });
 
 export default function Login({ formData, setFormData, step, setStep, lang }) {
     const [showPassword, setShowPassword] = useState(false)
     const [country, setCountry] = useState("")
     const [loading, setLoading] = useState(false)
+    const loginSchema = useMemo(() => makeLoginSchema(lang), [lang]);
     const form = useForm({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -77,9 +79,9 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                     <div className="login-form-section">
                         <div className="login-header">
                             <h1 className="login-title">
-                                مرحب بعودتك
+                                {t(lang, "welcome")}
                             </h1>
-                            <p className="login-subtitle">مرحبًا بك في النظام الإلكتروني لاداره سباقات الزاجل.</p>
+                            <p className="login-subtitle">{t(lang, "welcome_desc")}</p>
                         </div>
 
                         <Form {...form}>
@@ -91,7 +93,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-mobile">
                                             <FormLabel className="password-label">
-                                                رقم الجوال
+                                                {t(lang, "Phone_Number")}
                                             </FormLabel>
                                             <FormControl>
                                                 <div className={`input-of-mobile-num ${form.formState.errors.phone || form.formState.errors.country
@@ -115,7 +117,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                                                             }}
                                                                         >
                                                                             <SelectTrigger className="country-select-trigger">
-                                                                                <SelectValue placeholder={lang === 'ar' ? 'البلد' : 'Country'} />
+                                                                                <SelectValue placeholder={t(lang, "Country")} />
                                                                             </SelectTrigger>
                                                                             <SelectContent>
                                                                                 <SelectGroup>
@@ -148,7 +150,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                                         type="tel"
                                                         className="phone-input"
                                                         style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}
-                                                        placeholder={lang === 'ar' ? 'أدخل رقم هاتفك' : 'Enter Your Phone'}
+                                                        placeholder={t(lang, "Phone_Number")}
                                                         {...field}
                                                     />
                                                 </div>
@@ -173,16 +175,15 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-password">
                                             <FormLabel className="password-label">
-                                                كلمة المرور
+                                                {t(lang, "Password")}
                                             </FormLabel>
                                             <FormControl >
                                                 <div className={`password-input-wrapper ${form.formState.errors.password ? 'error-password' : form.formState.isDirty && field.value ? 'success-password' : ''}`}>
                                                     <Input
                                                         {...field}
                                                         type={showPassword ? "text" : "password"}
-                                                        placeholder="كلمة المرور"
+                                                        placeholder={t(lang, "Password")}
                                                         className="password-input"
-                                                        dir="rtl"
                                                     />
                                                     <button
                                                         type="button"
@@ -209,7 +210,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                         type="button"
                                         className="forgot-password-btn"
                                     >
-                                        نسيت كلمة المرور؟
+                                        {t(lang, "Forgot_Password")}
                                     </Link>
                                 </div>
 
@@ -223,20 +224,20 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                         loading ? (
                                             <span className="loader-btn"></span>
                                         ) : (
-                                            <span>تسجيل الدخول</span>
+                                            <span>{t(lang, "Login")}</span>
                                         )
                                     }
                                 </Button>
 
                                 {/* Sign Up Link */}
                                 <div className="signup-wrapper">
-                                    ليس لديك حساب؟{" "}
+                                    {t(lang, "No_Account")}{" "}
                                     <Link
                                         href="/register"
                                         type="button"
                                         className="signup-btn"
                                     >
-                                        إنشاء حساب
+                                        {t(lang, "Create_Account")}
                                     </Link>
                                 </div>
                             </form>
@@ -258,7 +259,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                 </div>
                  {/* Footer Text */}
                         <Link href="/" className="login-footer">
-                            <p className="guest-login-text">الدخول كزائر</p>
+                            <p className="guest-login-text">{t(lang, "guest_login_text")}</p>
                         </Link>
             </div>
         </div>

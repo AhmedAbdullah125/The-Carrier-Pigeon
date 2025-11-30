@@ -1,0 +1,89 @@
+.license-steps-container {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.license-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    @media screen and (max-width: 768px) {
+        flex-direction: row;
+        gap: 12px;
+    }
+}
+
+.step-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    
+    &.completed {
+        background-color: $main;
+        color: white;
+    }
+    
+    &.active {
+        background-color: $main;
+        color: white;
+    }
+    
+    &.upcoming {
+        background-color: #1B835440;
+        color: #1C1C1C;
+    }
+    
+    @media screen and (max-width: 1200px) {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+.step-label {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1C1C1C;
+    white-space: nowrap;
+    @media screen and (max-width: 1200px) {
+        font-size: 14px;
+    }
+}
+
+
+
+
+.progress-cont{
+    width: 60px;
+    height: 8px;
+    border-radius: 7px;
+    background-color: #DDE1E6;
+    overflow: hidden;
+    .progr-value{
+        height: 100%;
+        background-color: $main;
+        transition: all 0.3s ease;
+        border-radius: 7px;
+    }
+}

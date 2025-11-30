@@ -161,7 +161,6 @@ export default function Register({ formData, setFormData, step, setStep, lang })
                                                         type="text"
                                                         placeholder="الاسم كامل"
                                                         className="password-input name-input"
-                                                        dir="rtl"
                                                     />
                                                 </div>
                                             </FormControl>
@@ -263,7 +262,6 @@ export default function Register({ formData, setFormData, step, setStep, lang })
                                                         type="text"
                                                         placeholder="البريد الالكتروني"
                                                         className="password-input name-input"
-                                                        dir="rtl"
                                                     />
                                                     <div className="field-icon">
                                                         <Image className="eye-icon" src={mailIcon} alt="mailIcon" />
@@ -369,7 +367,6 @@ export default function Register({ formData, setFormData, step, setStep, lang })
                                                         type={showPassword ? "text" : "password"}
                                                         placeholder="كلمة المرور"
                                                         className="password-input"
-                                                        dir="rtl"
                                                     />
                                                     <button
                                                         type="button"
@@ -404,7 +401,6 @@ export default function Register({ formData, setFormData, step, setStep, lang })
                                                         type={showPassword ? "text" : "password"}
                                                         placeholder="كلمة المرور"
                                                         className="password-input"
-                                                        dir="rtl"
                                                     />
                                                     <button
                                                         type="button"

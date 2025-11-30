@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -11,18 +11,46 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { InputOTP, InputOTPGroup, InputOTPSlot, } from "@/components/ui/input-otp"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
+import { t } from "@/lib/i18n"
 // Zod validation schema
-const loginSchema = z.object({
-    code: z
-        .string()
-        .length(4, { message: "رمز التحقق يجب أن يكون 4 أرقام" })
-        .regex(/^[0-9]+$/, { message: "يجب أن يحتوي رمز التحقق على أرقام فقط" })
-})
-
+// helper to build schema with the current language
+const makeLoginSchema = (lang) =>
+    z.object({
+        code: z
+            .string()
+            .length(4, { message: t(lang, "verify_code_length") })
+            .regex(/^[0-9]+$/, { message: t(lang, "verify_code_numbers_only") }),
+    });
 
 export default function Verify({ formData, setFormData, step, setStep, lang, link }) {
-    const [loading, setLoading] = useState(false)
-    const router = useRouter()
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+
+    const loginSchema = useMemo(() => makeLoginSchema(lang), [lang]);
+
+    const form = useForm({
+        resolver: zodResolver(loginSchema),
+        defaultValues: {
+            code: "",
+        },
+    });
+
+    const onSubmit = (data) => {
+        setLoading(true);
+        console.log(data);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
+        setFormData({ ...formData, ...data });
+
+        if (link === "/reset-password") {
+            setStep("reset-password");
+        } else {
+            router.push(link);
+        }
+    };
+
     const handleResendOTP = () => {
         //loading for 2 seconds
         setLoading(true)
@@ -31,27 +59,7 @@ export default function Verify({ formData, setFormData, step, setStep, lang, lin
         }, 2000)
         console.log("Resend OTP");
     }
-    const form = useForm({
-        resolver: zodResolver(loginSchema),
-        defaultValues: {
-            code: "",
-        },
-    })
-    const onSubmit = (data) => {
-        //loading for 2 seconds
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
-        setFormData({ ...formData, ...data })
-        console.log(formData);
-        if (link === "/reset-password") {
-            setStep("reset-password")
-        }
-        else {
-            router.push(link)
-        }
-    }
+
     return (
         <div className="login-container">
             <div className="login-card">
@@ -59,8 +67,8 @@ export default function Verify({ formData, setFormData, step, setStep, lang, lin
                     {/* Form Section */}
                     <div className="login-form-section">
                         <div className="login-header">
-                            <h1 className="login-title"> ادخل رمز التحقيق المرسل </h1>
-                            <p className="login-subtitle">تم إرسال رمز مكوّن من 4 أرقام إلى رقم جوالك: {formData?.country + formData?.phone} أدخل الرمز لإكمال التحقق.</p>
+                            <h1 className="login-title">{t(lang, "verify")}</h1>
+                            <p className="login-subtitle">{t(lang, "verify_subtitle_part1")} {formData?.country + formData?.phone} {t(lang, "verify_subtitle_part2")}</p>
                         </div>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -71,7 +79,7 @@ export default function Verify({ formData, setFormData, step, setStep, lang, lin
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-mobile">
                                             <FormLabel className="password-label">
-                                                ادخل رمز التحقق
+                                                {t(lang, "enter_verification_code")}
                                             </FormLabel>
                                             <FormControl>
                                                 <InputOTP
@@ -109,13 +117,13 @@ export default function Verify({ formData, setFormData, step, setStep, lang, lin
                                         loading ? (
                                             <span className="loader-btn"></span>
                                         ) : (
-                                            <span>تاكيد الرمز</span>
+                                            <span>{t(lang, "confirm_code")}</span>
                                         )
                                     }
                                 </Button>
                                 <div className="signup-wrapper">
-                                    لم تستلم رمز التحقق؟{" "}
-                                    <button onClick={handleResendOTP} type="button" className="signup-btn"> اعاده ارسال رمز التحقق</button>
+                                    {t(lang, "didnt_receive_code")}{" "}
+                                    <button onClick={handleResendOTP} type="button" className="signup-btn"> {t(lang, "resend_verification_code")}</button>
                                 </div>
                             </form>
                         </Form>

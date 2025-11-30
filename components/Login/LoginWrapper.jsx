@@ -15,7 +15,7 @@ export default function LoginWrapper() {
         }
     }, []);
     return (
-        <div className="login-wrapper">
+        <div className="login-wrapper" style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}>
             <div className="container">
                 {
                     step === "login" ? <Login formData={fromData} setFormData={setFormData} step={step} setStep={setStep} lang={lang} /> :

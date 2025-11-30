@@ -1,6 +1,5 @@
 "use client"
-
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -13,26 +12,28 @@ import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { t } from "@/lib/i18n"
 
-// Zod validation schema
-const loginSchema = z
-    .object({
-        password: z
-            .string()
-            .min(1, { message: "كلمة المرور مطلوبة" })
-            .min(6, { message: "كلمة المرور يجب أن تكون 6 أحرف على الأقل" }),
+// Zod validation schema with translations
+const makeLoginSchema = (lang) =>
+    z.object({
+            password: z
+                .string()
+                .min(1, { message: t(lang, "password_required") })
+                .min(6, { message: t(lang, "password_min_length") }),
 
-        repassword: z
-            .string()
-            .min(1, { message: "تأكيد كلمة المرور مطلوب" })
-            .min(6, { message: "كلمة المرور يجب أن تكون 6 أحرف على الأقل" }),
-    })
-    .refine((data) => data.password === data.repassword, {
-        message: "كلمه المرور غير متطابقه",
-        path: ["repassword"], // error will appear under repassword field
-    })
+            repassword: z
+                .string()
+                .min(1, { message: t(lang, "repassword_required") })
+                .min(6, { message: t(lang, "password_min_length") }),
+        })
+        .refine((data) => data.password === data.repassword, {
+            message: t(lang, "password_mismatch"),
+            path: ["repassword"],
+        });
 
 export default function ResetPassword({ formData, setFormData, step, setStep, lang }) {
+    const loginSchema = useMemo(() => makeLoginSchema(lang), [lang]);
     const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false)
     const [showSuccessModal, setShowSuccessModal] = useState(false)
@@ -68,8 +69,8 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                         <div className="success-icon">
                             <Image src={chwckwithshadow} alt="success" />
                         </div>
-                        <h2 className="success-title">تهانينا</h2>
-                        <p className="success-message">تم تغيير كلمة المرور بنجاح</p>
+                        <h2 className="success-title">{t(lang, "congratulations")}</h2>
+                        <p className="success-message">{t(lang, "password_changed_successfully")}</p>
                     </div>
                 </div>
             )}
@@ -78,8 +79,8 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                     {/* Form Section */}
                     <div className="login-form-section">
                         <div className="login-header">
-                            <h1 className="login-title">قم بتعيين كلمة مرور جديدة</h1>
-                            <p className="login-subtitle">أدخل كلمة مرور قوية تحتوي علي حروف ارقام ورموز</p>
+                            <h1 className="login-title">{t(lang, "reset_password_title")}</h1>
+                            <p className="login-subtitle">{t(lang, "reset_password_subtitle")}</p>
                         </div>
 
                         <Form {...form}>
@@ -93,17 +94,14 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                                     name="password"
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-password">
-                                            <FormLabel className="password-label">
-                                                كلمة المرور
-                                            </FormLabel>
+                                            <FormLabel className="password-label">{t(lang, "Password")} </FormLabel>
                                             <FormControl >
                                                 <div className={`password-input-wrapper ${form.formState.errors.password ? 'error-password' : form.formState.isDirty && field.value ? 'success-password' : ''}`}>
                                                     <Input
                                                         {...field}
                                                         type={showPassword ? "text" : "password"}
-                                                        placeholder="كلمة المرور"
+                                                        placeholder={t(lang, "password")}
                                                         className="password-input"
-                                                        dir="rtl"
                                                     />
                                                     <button
                                                         type="button"
@@ -130,16 +128,15 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-password">
                                             <FormLabel className="password-label">
-                                                تأكيد كلمة المرور
+                                                {t(lang, "confirm_password")}
                                             </FormLabel>
                                             <FormControl >
                                                 <div className={`password-input-wrapper ${form.formState.errors.password ? 'error-password' : form.formState.isDirty && field.value ? 'success-password' : ''}`}>
                                                     <Input
                                                         {...field}
                                                         type={showPassword ? "text" : "password"}
-                                                        placeholder="كلمة المرور"
+                                                        placeholder={t(lang, "confirm_password")}
                                                         className="password-input"
-                                                        dir="rtl"
                                                     />
                                                     <button
                                                         type="button"
@@ -166,7 +163,7 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                                         type="button"
                                         className="forgot-password-btn"
                                     >
-                                        نسيت كلمة المرور؟
+                                        {t(lang, "forgot_password")}
                                     </Link>
                                 </div>
 
@@ -180,20 +177,20 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                                         loading ? (
                                             <span className="loader-btn"></span>
                                         ) : (
-                                            <span>تسجيل الدخول</span>
+                                            <span>{t(lang, "reset_password")}</span>
                                         )
                                     }
                                 </Button>
 
                                 {/* Sign Up Link */}
                                 <div className="signup-wrapper">
-                                    ليس لديك حساب؟{" "}
+                                    {t(lang, "No_Account")}{" "}
                                     <Link
                                         href="/register"
                                         type="button"
                                         className="signup-btn"
                                     >
-                                        إنشاء حساب
+                                        {t(lang, "create_account")}
                                     </Link>
                                 </div>
                             </form>
@@ -213,10 +210,6 @@ export default function ResetPassword({ formData, setFormData, step, setStep, la
                         />
                     </div>
                 </div>
-                {/* Footer Text */}
-                <Link href="/" className="login-footer">
-                    <p className="guest-login-text">الدخول كزائر</p>
-                </Link>
             </div>
         </div>
     )

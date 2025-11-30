@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -11,22 +11,26 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import flag from "@/public/images/flag.svg"
+import { t } from "@/lib/i18n"
 
-// Zod validation schema
-const loginSchema = z.object({
-    phone: z
-        .string()
-        .min(1, { message: "رقم الجوال مطلوب" })
-        .regex(/^[0-9]+$/, { message: "يجب أن يحتوي رقم الجوال على أرقام فقط" })
-        .min(9, { message: "رقم الجوال يجب أن يكون 9 أرقام على الأقل" }),
-    country: z
-        .string().min(1, { message: "البلد مطلوب" }),
-})
+// Zod validation schema - helper to build schema with the current language
+const makeLoginSchema = (lang) =>
+    z.object({
+        phone: z
+            .string()
+            .min(1, { message: t(lang, "phone_required") })
+            .regex(/^[0-9]+$/, { message: t(lang, "phone_numbers_only") })
+            .min(9, { message: t(lang, "phone_min_length") }),
+        country: z
+            .string().min(1, { message: t(lang, "country_required") }),
+    });
 
 export default function ForgetPassword({ formData, setFormData, step, setStep, lang }) {
-    const [showPassword, setShowPassword] = useState(false)
     const [country, setCountry] = useState("")
     const [loading, setLoading] = useState(false)
+    
+    const loginSchema = useMemo(() => makeLoginSchema(lang), [lang]);
+    
     const form = useForm({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -69,10 +73,8 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                     {/* Form Section */}
                     <div className="login-form-section">
                         <div className="login-header">
-                            <h1 className="login-title">
-                                نسيت كلمه المرور ؟
-                            </h1>
-                            <p className="login-subtitle">لا مشكله  , أدخل رقم جوالك المرتبط بالحساب وسنرسل لك كود تأكيد لإعادة تعيين كلمة المرور</p>
+                            <h1 className="login-title">{t(lang, "Forgot_Password")}</h1>
+                            <p className="login-subtitle">{t(lang, "forgot_password_subtitle")}</p>
                         </div>
 
                         <Form {...form}>
@@ -84,7 +86,7 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                                     render={({ field }) => (
                                         <FormItem className="from-input-wrapper-mobile">
                                             <FormLabel className="password-label">
-                                                رقم الجوال
+                                                {t(lang, "Phone_Number")}
                                             </FormLabel>
                                             <FormControl>
                                                 <div className={`input-of-mobile-num ${form.formState.errors.phone || form.formState.errors.country
@@ -108,7 +110,7 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                                                                             }}
                                                                         >
                                                                             <SelectTrigger className="country-select-trigger">
-                                                                                <SelectValue placeholder={lang === 'ar' ? 'البلد' : 'Country'} />
+                                                                                <SelectValue placeholder={t(lang, "Country")} />
                                                                             </SelectTrigger>
                                                                             <SelectContent>
                                                                                 <SelectGroup>
@@ -141,7 +143,7 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                                                         type="tel"
                                                         className="phone-input"
                                                         style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}
-                                                        placeholder={lang === 'ar' ? 'أدخل رقم هاتفك' : 'Enter Your Phone'}
+                                                        placeholder={t(lang, "Phone_Number")}
                                                         {...field}
                                                     />
                                                 </div>
@@ -167,17 +169,12 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                                         loading ? (
                                             <span className="loader-btn"></span>
                                         ) : (
-                                            <span>ارسال رمز التحقق</span>
+                                            <span>{t(lang, "send_verification_code")}</span>
                                         )
                                     }
                                 </Button>
-
-                                {/* Sign Up Link */}
-                                
                             </form>
                         </Form>
-
-
                     </div>
 
                     {/* Image Section */}
@@ -191,7 +188,6 @@ export default function ForgetPassword({ formData, setFormData, step, setStep, l
                         />
                     </div>
                 </div>
-                
             </div>
         </div>
     )

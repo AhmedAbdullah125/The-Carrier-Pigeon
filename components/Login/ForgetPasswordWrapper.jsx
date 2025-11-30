@@ -16,7 +16,7 @@ export default function ForgetPasswordWrapper() {
         }
     }, []);
     return (
-        <div className="login-wrapper">
+        <div className="login-wrapper" style={{ direction: lang == "ar" ? "rtl" : "ltr" }}>
             <div className="container">
                 {
                     step === "forget-password" ? <ForgetPassword formData={fromData} setFormData={setFormData} step={step} setStep={setStep} lang={lang} /> :
