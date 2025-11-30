@@ -9,6 +9,7 @@ import Membership from "./Membership";
 import HomeAuctions from "./HomeAuctions";
 import HomeCommunity from "./HomeCommunity";
 import HomePartners from "./HomePartners";
+import Loading from "@/src/app/loading";
 
 export default function HomeWrapper() {
   const [lang, setLang] = useState('ar');

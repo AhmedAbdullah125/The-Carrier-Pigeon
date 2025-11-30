@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import flag from "@/public/images/flag.svg"
+import Link from "next/link"
 
 // Zod validation schema
 const loginSchema = z.object({
@@ -29,9 +30,9 @@ const loginSchema = z.object({
 })
 
 export default function Login({ formData, setFormData, step, setStep, lang }) {
-    const [showPassword, setShowPassword] = React.useState(false)
-    const [country, setCountry] = React.useState("")
-
+    const [showPassword, setShowPassword] = useState(false)
+    const [country, setCountry] = useState("")
+    const [loading, setLoading] = useState(false)
     const form = useForm({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -42,12 +43,15 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
     })
 
     const onSubmit = (data) => {
-        console.log(data);
-
+        //loading for 2 seconds
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
         setFormData({ ...formData, ...data })
         console.log(formData);
 
-        // setStep("verify")
+        setStep("verify")
     }
 
     const countries = [
@@ -85,15 +89,15 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                     control={form.control}
                                     name="phone"
                                     render={({ field }) => (
-                                        <FormItem>
+                                        <FormItem className="from-input-wrapper-mobile">
                                             <FormLabel className="password-label">
                                                 رقم الجوال
                                             </FormLabel>
                                             <FormControl>
-                                                <div className={`input-of-mobile-num ${ form.formState.errors.phone || form.formState.errors.country
-                                                    ? 'error'
-                                                    : form.formState.isDirty  || (field.value && country && !form.formState.errors.phone && !form.formState.errors.country)
-                                                        ? 'success'
+                                                <div className={`input-of-mobile-num ${form.formState.errors.phone || form.formState.errors.country
+                                                    ? 'error-mob-input'
+                                                    : form.formState.isDirty && (field.value && country && !form.formState.errors.phone && !form.formState.errors.country)
+                                                        ? 'success-mob-input'
                                                         : ''
                                                     }`}>
                                                     <div className="country-select">
@@ -163,15 +167,16 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
 
                                 {/* Password Field */}
                                 <FormField
+
                                     control={form.control}
                                     name="password"
                                     render={({ field }) => (
-                                        <FormItem>
+                                        <FormItem className="from-input-wrapper-password">
                                             <FormLabel className="password-label">
                                                 كلمة المرور
                                             </FormLabel>
-                                            <FormControl>
-                                                <div className="password-input-wrapper">
+                                            <FormControl >
+                                                <div className={`password-input-wrapper ${form.formState.errors.password ? 'error-password' : form.formState.isDirty && field.value ? 'success-password' : ''}`}>
                                                     <Input
                                                         {...field}
                                                         type={showPassword ? "text" : "password"}
@@ -182,7 +187,7 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                                                     <button
                                                         type="button"
                                                         onClick={() => setShowPassword(!showPassword)}
-                                                        className="password-toggle-btn"
+                                                        className="field-icon"
                                                     >
                                                         {showPassword ? (
                                                             <EyeOff className="eye-icon" />
@@ -199,40 +204,45 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
 
                                 {/* Forgot Password Link */}
                                 <div className="forgot-password-wrapper">
-                                    <button
+                                    <Link
+                                        href="/forget-password"
                                         type="button"
                                         className="forgot-password-btn"
                                     >
                                         نسيت كلمة المرور؟
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {/* Submit Button */}
                                 <Button
                                     type="submit"
                                     className="submit-btn"
-                                    disabled={form.formState.errors.phone || form.formState.errors.password || form.formState.errors.country}
+                                    disabled={form.formState.errors.phone || form.formState.errors.password || form.formState.errors.country || !form.formState.isDirty}
                                 >
-                                    تسجيل الدخول
+                                    {
+                                        loading ? (
+                                            <span className="loader-btn"></span>
+                                        ) : (
+                                            <span>تسجيل الدخول</span>
+                                        )
+                                    }
                                 </Button>
 
                                 {/* Sign Up Link */}
                                 <div className="signup-wrapper">
                                     ليس لديك حساب؟{" "}
-                                    <button
+                                    <Link
+                                        href="/register"
                                         type="button"
                                         className="signup-btn"
                                     >
                                         إنشاء حساب
-                                    </button>
+                                    </Link>
                                 </div>
                             </form>
                         </Form>
 
-                        {/* Footer Text */}
-                        <div className="login-footer">
-                            <p className="guest-login-text">الدخول كزائر</p>
-                        </div>
+                       
                     </div>
 
                     {/* Image Section */}
@@ -246,6 +256,10 @@ export default function Login({ formData, setFormData, step, setStep, lang }) {
                         />
                     </div>
                 </div>
+                 {/* Footer Text */}
+                        <Link href="/" className="login-footer">
+                            <p className="guest-login-text">الدخول كزائر</p>
+                        </Link>
             </div>
         </div>
     )

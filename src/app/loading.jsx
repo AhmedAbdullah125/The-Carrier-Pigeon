@@ -1,920 +1,237 @@
-'use client'
 import React from 'react';
-import styled from 'styled-components';
+const Loading = () => {
+  return (
+    <div className="loading-cont">
 
-const Loader = () => {
-    return (
-        <div className="loader-sec">
-            <StyledWrapper>
-                <div className="scene">
-                    <div className="forest">
-                        <div className="tree tree1">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                        </div>
-                        <div className="tree tree2">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                        <div className="tree tree3">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                        <div className="tree tree4">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                        <div className="tree tree5">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                        <div className="tree tree6">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                        <div className="tree tree7">
-                            <div className="branch branch-top" />
-                            <div className="branch branch-middle" />
-                            <div className="branch branch-bottom" />
-                        </div>
-                    </div>
-                    <div className="tent">
-                        <div className="roof" />
-                        <div className="roof-border-left">
-                            <div className="roof-border roof-border1" />
-                            <div className="roof-border roof-border2" />
-                            <div className="roof-border roof-border3" />
-                        </div>
-                        <div className="entrance">
-                            <div className="door left-door">
-                                <div className="left-door-inner" />
-                            </div>
-                            <div className="door right-door">
-                                <div className="right-door-inner" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="floor">
-                        <div className="ground ground1" />
-                        <div className="ground ground2" />
-                    </div>
-                    <div className="fireplace">
-                        <div className="support" />
-                        <div className="support" />
-                        <div className="bar" />
-                        <div className="hanger" />
-                        <div className="smoke" />
-                        <div className="pan" />
-                        <div className="fire">
-                            <div className="line line1">
-                                <div className="particle particle1" />
-                                <div className="particle particle2" />
-                                <div className="particle particle3" />
-                                <div className="particle particle4" />
-                            </div>
-                            <div className="line line2">
-                                <div className="particle particle1" />
-                                <div className="particle particle2" />
-                                <div className="particle particle3" />
-                                <div className="particle particle4" />
-                            </div>
-                            <div className="line line3">
-                                <div className="particle particle1" />
-                                <div className="particle particle2" />
-                                <div className="particle particle3" />
-                                <div className="particle particle4" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="time-wrapper">
-                        <div className="time">
-                            <div className="day" />
-                            <div className="night">
-                                <div className="moon" />
-                                <div className="star star1 star-big" />
-                                <div className="star star2 star-big" />
-                                <div className="star star3 star-big" />
-                                <div className="star star4" />
-                                <div className="star star5" />
-                                <div className="star star6" />
-                                <div className="star star7" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </StyledWrapper>
-        </div>
+    <div className="loader">
+      <svg
+        className="legl"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20.69332"
+        height="68.19944"
+        viewBox="0,0,20.69332,68.19944"
+      >
+        <g transform="translate(-201.44063,-235.75466)">
+          <g strokeMiterlimit="10">
+            <path d="" fill="#ffffff" stroke="none" strokeWidth="0.5"></path>
+            <path
+              d=""
+              fillOpacity="0.26667"
+              fill="#97affd"
+              strokeOpacity="0.48627"
+              stroke="#ffffff"
+              strokeWidth="0"
+            ></path>
+            <path
+              d="M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z"
+              fill="none"
+              stroke="#191e2e"
+              strokeWidth="7"
+            ></path>
+          </g>
+        </g>
+      </svg>
+
+      <svg
+        className="legr"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="41.02537"
+        height="64.85502"
+        viewBox="0,0,41.02537,64.85502"
+      >
+        <g transform="translate(-241.54137,-218.44347)">
+          <g strokeMiterlimit="10">
+            <path
+              d="M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z"
+              fill="none"
+              stroke="#000000"
+              strokeWidth="7"
+            ></path>
+            <path d="" fill="#ffffff" stroke="none" strokeWidth="0.5"></path>
+            <path
+              d=""
+              fillOpacity="0.26667"
+              fill="#97affd"
+              strokeOpacity="0.48627"
+              stroke="#ffffff"
+              strokeWidth="0"
+            ></path>
+          </g>
+        </g>
+      </svg>
+
+      <div className="bod">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="144.10576"
+          height="144.91623"
+          viewBox="0,0,144.10576,144.91623"
+        >
+          <g transform="translate(-164.41679,-112.94712)">
+            <g strokeMiterlimit="10">
+              <path
+                d="M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z"
+                fill="#191e2e"
+                stroke="#000000"
+                strokeWidth="5"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M167.94713,180c0,-37.03228 35.0206,-67.05288 72.05288,-67.05288c37.03228,0 67.05288,30.0206 67.05288,67.05288c0,7.04722 -1.08716,13.84053 -3.10292,20.22135c-2.71464,8.59309 -7.1134,16.43809 -12.809,23.14771c-2.31017,2.72146 -7.54471,13.1063 -7.54471,13.1063c0,0 -5.46714,-1.20052 -8.44434,0.63584c-3.86867,2.38624 -10.95356,11.02726 -10.95356,11.02726c0,0 -6.96906,-3.25117 -9.87477,-2.61888c-2.64748,0.5761 -6.72538,5.85575 -6.72538,5.85575c0,0 -5.5023,-4.32246 -7.5982,-4.32246c-3.08622,0 -9.09924,3.5339 -9.09924,3.5339c0,0 -6.0782,-5.18777 -9.00348,-6.00605c-4.26461,-1.19293 -12.23343,0.76155 -12.23343,0.76155c0,0 -5.18164,-8.38236 -7.60688,-10.04981c-3.50443,-2.40943 -8.8271,-4.0124 -8.8271,-4.0124c0,0 -5.33472,-8.9471 -7.27019,-11.57706c-4.81099,-6.53732 -13.46422,-9.97928 -15.65729,-18.02347c-1.53558,-5.63252 -2.35527,-21.67953 -2.35527,-21.67953z"
+                fill="#191e2e"
+                stroke="none"
+                strokeWidth="0"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d=""
+                fill="#ffffff"
+                stroke="none"
+                strokeWidth="0.5"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d=""
+                fillOpacity="0.26667"
+                fill="#97affd"
+                strokeOpacity="0.48627"
+                stroke="#ffffff"
+                strokeWidth="0"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M216.22445,188.06994c0,0 1.02834,11.73245 -3.62335,21.11235c-4.65169,9.3799 -13.06183,10.03776 -13.06183,10.03776c0,0 7.0703,-3.03121 10.89231,-10.7381c4.34839,-8.76831 5.79288,-20.41201 5.79288,-20.41201z"
+                fill="none"
+                stroke="#2f3a50"
+                strokeWidth="3"
+                strokeLinecap="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+
+        <svg
+          className="head"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="115.68559"
+          height="88.29441"
+          viewBox="0,0,115.68559,88.29441"
+        >
+          <g transform="translate(-191.87889,-75.62023)">
+            <g strokeMiterlimit="10">
+              <path
+                d=""
+                fill="#ffffff"
+                stroke="none"
+                strokeWidth="0.5"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M195.12889,128.77752c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,0.60102 -9.22352,20.49284 -9.22352,20.49284l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z"
+                fill="none"
+                stroke="#2f3a50"
+                strokeWidth="6"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z"
+                fill="#191e2e"
+                strokeOpacity="0.48627"
+                stroke="#ffffff"
+                strokeWidth="0"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424"
+                fill="none"
+                stroke="#2f3a50"
+                strokeWidth="6"
+                strokeLinecap="round"
+              ></path>
+              <path
+                d="M306.56448,144.85764l-41.62024,-8.16845l2.44004,-7.87698"
+                fill="none"
+                stroke="#000000"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              ></path>
+              <path
+                d="M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z"
+                fill="#ffffff"
+                stroke="none"
+                strokeWidth="0.5"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d="M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z"
+                fill="#ffffff"
+                stroke="none"
+                strokeWidth="0.5"
+                strokeLinecap="butt"
+              ></path>
+              <path
+                d=""
+                fillOpacity="0.26667"
+                fill="#97affd"
+                strokeOpacity="0.48627"
+                stroke="#ffffff"
+                strokeWidth="0"
+                strokeLinecap="butt"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <svg
+        id="gnd"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="475"
+        height="530"
+        viewBox="0,0,163.40011,85.20095"
+      >
+        <g transform="translate(-176.25,-207.64957)">
+          <g
+            stroke="#000000"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+          >
+            <path
+              d="M295.5,273.1829c0,0 -57.38915,6.69521 -76.94095,-9.01465c-13.65063,-10.50609 15.70098,-20.69467 -2.5451,-19.94465c-30.31027,2.05753 -38.51396,-26.84135 -38.51396,-26.84135c0,0 6.50084,13.30023 18.93224,19.17888c9.53286,4.50796 26.23632,-1.02541 32.09529,4.95137c3.62417,3.69704 2.8012,6.33005 0.66517,8.49452c-3.79415,3.84467 -11.7312,6.21103 -6.24682,10.43645c22.01082,16.95812 72.55412,12.73944 72.55412,12.73944z"
+              fill="#000000"
+            ></path>
+            <path
+              d="M338.92138,217.76285c0,0 -17.49626,12.55408 -45.36424,10.00353c-8.39872,-0.76867 -17.29557,-6.23066 -17.29557,-6.23066c0,0 3.06461,-2.23972 15.41857,0.72484c26.30467,6.31228 47.24124,-4.49771 47.24124,-4.49771z"
+              fill="#000000"
+            ></path>
+            <path
+              d="M209.14443,223.00182l1.34223,15.4356l-10.0667,-15.4356"
+              fill="none"
+            ></path>
+            <path
+              d="M198.20391,230.41806l12.95386,7.34824l6.71113,-12.08004"
+              fill="none"
+            ></path>
+            <path d="M211.19621,238.53825l8.5262,-6.09014" fill="none"></path>
+            <path
+              d="M317.57068,215.80173l5.27812,6.49615l0.40601,-13.39831"
+              fill="none"
+            ></path>
+            <path d="M323.66082,222.70389l6.09014,-9.33822" fill="none"></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+    </div>
+
     );
 }
 
-const StyledWrapper = styled.div`
-  @keyframes stageBackground {
-    0%, 10%, 90%, 100% {
-      background-color: #00B6BB;
-    }
 
-    25%, 75% {
-      background-color: #0094bd;
-    }
-  }
-
-  @keyframes earthRotation {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes sunrise {
-    0%, 10%, 90%, 100% {
-      box-shadow: 0 0 0 25px #5ad6bd, 0 0 0 40px #4acead, 0 0 0 60px rgba(74, 206, 173, 0.6), 0 0 0 90px rgba(74, 206, 173, 0.3);
-    }
-
-    25%, 75% {
-      box-shadow: 0 0 0 0 #5ad6bd, 0 0 0 0 #4acead, 0 0 0 0 rgba(74, 206, 173, 0.6), 0 0 0 0 rgba(74, 206, 173, 0.3);
-    }
-  }
-
-  @keyframes moonOrbit {
-    25% {
-      transform: rotate(-60deg);
-    }
-
-    50% {
-      transform: rotate(-60deg);
-    }
-
-    75% {
-      transform: rotate(-120deg);
-    }
-
-    0%, 100% {
-      transform: rotate(-180deg);
-    }
-  }
-
-  @keyframes nightTime {
-    0%, 90% {
-      opacity: 0;
-    }
-
-    50%, 75% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes hotPan {
-    0%, 90% {
-      background-color: #74667e;
-    }
-
-    50%, 75% {
-      background-color: #b2241c;
-    }
-  }
-
-  @keyframes heat {
-    0%, 90% {
-      box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
-    }
-
-    50%, 75% {
-      box-shadow: inset 0 -2px 0 0 white;
-    }
-  }
-
-  @keyframes smoke {
-    0%, 50%, 90%, 100% {
-      opacity: 0;
-    }
-
-    50%, 75% {
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes fire {
-    0%, 90%, 100% {
-      opacity: 0;
-    }
-
-    50%, 75% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes treeShake {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    25% {
-      transform: rotate(-2deg);
-    }
-
-    40% {
-      transform: rotate(4deg);
-    }
-
-    50% {
-      transform: rotate(-4deg);
-    }
-
-    60% {
-      transform: rotate(6deg);
-    }
-
-    75% {
-      transform: rotate(-6deg);
-    }
-
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-
-  @keyframes fireParticles {
-    0% {
-      height: 30%;
-      opacity: 1;
-      top: 75%;
-    }
-
-    25% {
-      height: 25%;
-      opacity: 0.8;
-      top: 40%;
-    }
-
-    50% {
-      height: 15%;
-      opacity: 0.6;
-      top: 20%;
-    }
-
-    75% {
-      height: 10%;
-      opacity: 0.3;
-      top: 0;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes fireLines {
-    0%, 25%, 75%, 100% {
-      bottom: 0;
-    }
-
-    50% {
-      bottom: 5%;
-    }
-  }
-
-  .scene {
-    display: flex;
-    margin: 0 auto 80px auto;
-    justify-content: center;
-    align-items: flex-end;
-    width: 400px;
-    height: 300px;
-    position: relative;
-  }
-
-  .forest {
-    display: flex;
-    width: 75%;
-    height: 90%;
-    position: relative;
-  }
-
-  .tree {
-    display: block;
-    width: 50%;
-    position: absolute;
-    bottom: 0;
-    opacity: 0.4;
-  }
-
-  .tree .branch {
-    width: 80%;
-    height: 0;
-    margin: 0 auto;
-    padding-left: 40%;
-    padding-bottom: 50%;
-    overflow: hidden;
-  }
-
-  .tree .branch:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -600px;
-    border-left: 600px solid transparent;
-    border-right: 600px solid transparent;
-    border-bottom: 950px solid #000;
-  }
-
-  .tree .branch.branch-top {
-    transform-origin: 50% 100%;
-    animation: treeShake 0.5s linear infinite;
-  }
-
-  .tree .branch.branch-middle {
-    width: 90%;
-    padding-left: 45%;
-    padding-bottom: 65%;
-    margin: 0 auto;
-    margin-top: -25%;
-  }
-
-  .tree .branch.branch-bottom {
-    width: 100%;
-    padding-left: 50%;
-    padding-bottom: 80%;
-    margin: 0 auto;
-    margin-top: -40%;
-  }
-
-  .tree1 {
-    width: 31%;
-  }
-
-  .tree1 .branch-top {
-    transition-delay: 0.3s;
-  }
-
-  .tree2 {
-    width: 39%;
-    left: 9%;
-  }
-
-  .tree2 .branch-top {
-    transition-delay: 0.4s;
-  }
-
-  .tree3 {
-    width: 32%;
-    left: 24%;
-  }
-
-  .tree3 .branch-top {
-    transition-delay: 0.5s;
-  }
-
-  .tree4 {
-    width: 37%;
-    left: 34%;
-  }
-
-  .tree4 .branch-top {
-    transition-delay: 0.6s;
-  }
-
-  .tree5 {
-    width: 44%;
-    left: 44%;
-  }
-
-  .tree5 .branch-top {
-    transition-delay: 0.7s;
-  }
-
-  .tree6 {
-    width: 34%;
-    left: 61%;
-  }
-
-  .tree6 .branch-top {
-    transition-delay: 0.2s;
-  }
-
-  .tree7 {
-    width: 24%;
-    left: 76%;
-  }
-
-  .tree7 .branch-top {
-    transition-delay: 0.1s;
-  }
-
-  .tent {
-    width: 60%;
-    height: 25%;
-    position: absolute;
-    bottom: -0.5%;
-    right: 15%;
-    z-index: 1;
-    text-align: right;
-  }
-
-  .roof {
-    display: inline-block;
-    width: 45%;
-    height: 100%;
-    margin-right: 10%;
-    position: relative;
-    /*bottom: 0;
-    right: 9%;*/
-    z-index: 1;
-    border-top: 4px solid #4D4454;
-    border-right: 4px solid #4D4454;
-    border-left: 4px solid #4D4454;
-    border-top-right-radius: 6px;
-    transform: skew(30deg);
-    box-shadow: inset -3px 3px 0px 0px #F7B563;
-    /*background: linear-gradient(
-      to bottom, 
-      rgba(246,212,132,1) 0%,
-      rgba(246,212,132,1) 24%,
-      rgba(#F0B656,1) 25%,
-      rgba(#F0B656,1) 74%,
-      rgba(235,151,53,1) 75%,
-      rgba(235,151,53,1) 100%
-    );*/
-    background: #f6d484;
-  }
-
-  .roof:before {
-    content: "";
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    z-index: 0;
-    border-radius: 10%;
-    background-color: #E78C20;
-  }
-
-  .roof:after {
-    content: "";
-    height: 75%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    background: linear-gradient(to bottom, rgba(231, 140, 32, 0.4) 0%, rgba(231, 140, 32, 0.4) 64%, rgba(231, 140, 32, 0.8) 65%, rgba(231, 140, 32, 0.8) 100%);
-  }
-
-  .roof-border-left {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 1%;
-    height: 125%;
-    position: absolute;
-    top: 0;
-    left: 35.7%;
-    z-index: 1;
-    transform-origin: 50% 0%;
-    transform: rotate(35deg);
-  }
-
-  .roof-border-left .roof-border {
-    display: block;
-    width: 100%;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-  }
-
-  .roof-border-left .roof-border1 {
-    height: 40%;
-  }
-
-  .roof-border-left .roof-border2 {
-    height: 10%;
-  }
-
-  .roof-border-left .roof-border3 {
-    height: 40%;
-  }
-
-  .door {
-    width: 55px;
-    height: 92px;
-    position: absolute;
-    bottom: 2%;
-    overflow: hidden;
-    z-index: 0;
-    transform-origin: 0 105%;
-  }
-
-  .left-door {
-    transform: rotate(35deg);
-    position: absolute;
-    left: 13.5%;
-    bottom: -3%;
-    z-index: 0;
-  }
-
-  .left-door .left-door-inner {
-    width: 100%;
-    height: 100%;
-    transform-origin: 0 105%;
-    transform: rotate(-35deg);
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-    background-color: #EDDDC2;
-  }
-
-  .left-door .left-door-inner:before {
-    content: "";
-    width: 15%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: repeating-linear-gradient(#D4BC8B, #D4BC8B 4%, #E0D2A8 5%, #E0D2A8 10%);
-  }
-
-  .left-door .left-door-inner:after {
-    content: "";
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    transform: rotate(25deg);
-    background-color: #fff;
-  }
-
-  .right-door {
-    height: 89px;
-    right: 21%;
-    transform-origin: 0 105%;
-    transform: rotate(-30deg) scaleX(-1);
-    position: absolute;
-    bottom: -3%;
-    z-index: 0;
-  }
-
-  .right-door .right-door-inner {
-    width: 100%;
-    height: 100%;
-    transform-origin: 0 120%;
-    transform: rotate(-30deg);
-    position: absolute;
-    bottom: 0px;
-    overflow: hidden;
-    background-color: #EFE7CF;
-  }
-
-  .right-door .right-door-inner:before {
-    content: "";
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 15%;
-    right: -28%;
-    z-index: 1;
-    transform: rotate(15deg);
-    background-color: #524A5A;
-  }
-
-  .right-door .right-door-inner:after {
-    content: "";
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 15%;
-    right: -20%;
-    transform: rotate(20deg);
-    background-color: #fff;
-  }
-
-  .floor {
-    width: 80%;
-    position: absolute;
-    right: 10%;
-    bottom: 0;
-    z-index: 1;
-  }
-
-  .floor .ground {
-    position: absolute;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-  }
-
-  .floor .ground.ground1 {
-    width: 65%;
-    left: 0;
-  }
-
-  .floor .ground.ground2 {
-    width: 30%;
-    right: 0;
-  }
-
-  .fireplace {
-    display: block;
-    width: 24%;
-    height: 20%;
-    position: absolute;
-    left: 5%;
-  }
-
-  .fireplace:before {
-    content: "";
-    display: block;
-    width: 8%;
-    position: absolute;
-    bottom: -4px;
-    left: 2%;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-    background: #4D4454;
-  }
-
-  .fireplace .support {
-    display: block;
-    height: 105%;
-    width: 2px;
-    position: absolute;
-    bottom: -5%;
-    left: 10%;
-    border: 2px solid #4D4454;
-  }
-
-  .fireplace .support:before {
-    content: "";
-    width: 100%;
-    height: 15%;
-    position: absolute;
-    top: -18%;
-    left: -4px;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-    transform-origin: 100% 100%;
-    transform: rotate(45deg);
-  }
-
-  .fireplace .support:after {
-    content: "";
-    width: 100%;
-    height: 15%;
-    position: absolute;
-    top: -18%;
-    left: 0px;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-    transform-origin: 0 100%;
-    transform: rotate(-45deg);
-  }
-
-  .fireplace .support:nth-child(1) {
-    left: 85%;
-  }
-
-  .fireplace .bar {
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    border: 2px solid #4D4454;
-  }
-
-  .fireplace .hanger {
-    display: block;
-    width: 2px;
-    height: 25%;
-    margin-left: -4px;
-    position: absolute;
-    left: 50%;
-    border: 2px solid #4D4454;
-  }
-
-  .fireplace .pan {
-    display: block;
-    width: 25%;
-    height: 50%;
-    border-radius: 50%;
-    border: 4px solid #4D4454;
-    position: absolute;
-    top: 25%;
-    left: 35%;
-    overflow: hidden;
-    animation: heat 5s linear infinite;
-  }
-
-  .fireplace .pan:before {
-    content: "";
-    display: block;
-    height: 53%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: -1;
-    border-top: 4px solid #4D4454;
-    background-color: #74667e;
-    animation: hotPan 5s linear infinite;
-  }
-
-  .fireplace .smoke {
-    display: block;
-    width: 20%;
-    height: 25%;
-    position: absolute;
-    top: 25%;
-    left: 37%;
-    background-color: white;
-    filter: blur(5px);
-    animation: smoke 5s linear infinite;
-  }
-
-  .fireplace .fire {
-    display: block;
-    width: 25%;
-    height: 120%;
-    position: absolute;
-    bottom: 0;
-    left: 33%;
-    z-index: 1;
-    animation: fire 5s linear infinite;
-  }
-
-  .fireplace .fire:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: -4px;
-    z-index: 1;
-    border-radius: 2px;
-    border: 1px solid #efb54a;
-    background-color: #efb54a;
-  }
-
-  .fireplace .fire .line {
-    display: block;
-    width: 2px;
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    animation: fireLines 1s linear infinite;
-  }
-
-  .fireplace .fire .line2 {
-    left: 50%;
-    margin-left: -1px;
-    animation-delay: 0.3s;
-  }
-
-  .fireplace .fire .line3 {
-    right: 0;
-    animation-delay: 0.5s;
-  }
-
-  .fireplace .fire .line .particle {
-    height: 10%;
-    position: absolute;
-    top: 100%;
-    z-index: 1;
-    border-radius: 2px;
-    border: 2px solid #efb54a;
-    animation: fireParticles 0.5s linear infinite;
-  }
-
-  .fireplace .fire .line .particle1 {
-    animation-delay: 0.1s;
-  }
-
-  .fireplace .fire .line .particle2 {
-    animation-delay: 0.3s;
-  }
-
-  .fireplace .fire .line .particle3 {
-    animation-delay: 0.6s;
-  }
-
-  .fireplace .fire .line .particle4 {
-    animation-delay: 0.9s;
-  }
-
-  .time-wrapper {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-  }
-
-  .time {
-    display: block;
-    width: 100%;
-    height: 200%;
-    position: absolute;
-    transform-origin: 50% 50%;
-    transform: rotate(270deg);
-    animation: earthRotation 5s linear infinite;
-  }
-
-  .time .day {
-    display: block;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 20%;
-    left: 40%;
-    border-radius: 50%;
-    box-shadow: 0 0 0 25px #5ad6bd, 0 0 0 40px #4acead, 0 0 0 60px rgba(74, 206, 173, 0.6), 0 0 0 90px rgba(74, 206, 173, 0.3);
-    animation: sunrise 5s ease-in-out infinite;
-    background-color: #ef9431;
-  }
-
-  .time .night {
-    animation: nightTime 5s ease-in-out infinite;
-  }
-
-  .time .night .star {
-    display: block;
-    width: 4px;
-    height: 4px;
-    position: absolute;
-    bottom: 10%;
-    border-radius: 50%;
-    background-color: #fff;
-  }
-
-  .time .night .star-big {
-    width: 6px;
-    height: 6px;
-  }
-
-  .time .night .star1 {
-    right: 23%;
-    bottom: 25%;
-  }
-
-  .time .night .star2 {
-    right: 35%;
-    bottom: 18%;
-  }
-
-  .time .night .star3 {
-    right: 47%;
-    bottom: 25%;
-  }
-
-  .time .night .star4 {
-    right: 22%;
-    bottom: 20%;
-  }
-
-  .time .night .star5 {
-    right: 18%;
-    bottom: 30%;
-  }
-
-  .time .night .star6 {
-    right: 60%;
-    bottom: 20%;
-  }
-
-  .time .night .star7 {
-    right: 70%;
-    bottom: 23%;
-  }
-
-  .time .night .moon {
-    display: block;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    bottom: 22%;
-    right: 33%;
-    border-radius: 50%;
-    transform: rotate(-60deg);
-    box-shadow: 9px 9px 3px 0 white;
-    filter: blur(1px);
-    animation: moonOrbit 5s ease-in-out infinite;
-  }
-
-  .time .night .moon:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: -9px;
-    left: 9px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.05), 0 0 0 15px rgba(255, 255, 255, 0.05), 0 0 0 25px rgba(255, 255, 255, 0.05), 0 0 0 35px rgba(255, 255, 255, 0.05);
-    background-color: rgba(255, 255, 255, 0.2);
-  }`;
-
-export default Loader;
+export default Loading;

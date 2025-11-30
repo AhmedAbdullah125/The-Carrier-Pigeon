@@ -19,7 +19,7 @@ export default function LoginWrapper() {
             <div className="container">
                 {
                     step === "login" ? <Login formData={fromData} setFormData={setFormData} step={step} setStep={setStep} lang={lang} /> :
-                        <Verify formData={fromData} setFormData={setFormData} step={step} setStep={setStep} lang={lang} />
+                        <Verify formData={fromData} setFormData={setFormData} step={step} setStep={setStep} lang={lang} link="/" />
                 }
             </div>
         </div>

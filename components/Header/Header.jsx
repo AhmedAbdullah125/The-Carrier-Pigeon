@@ -56,7 +56,9 @@ export default function Header() {
                 <div className="container">
                     <div className={"navInner"}>
                         {/* Right: logo */}
-                        <Image src={logo} alt="logo" className={"logo"} />
+                        <Link href="/">
+                            <Image src={logo} alt="logo" className={"logo"} />
+                        </Link>
                         {/* Center: nav links */}
                         <nav className={"navMenu"} aria-label="Main navigation">
                             {navItems.map((item, index) => {
