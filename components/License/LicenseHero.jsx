@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import heroimg from "@/public/images/heroimg.png";
 import { t } from "@/lib/i18n";
 
 export default function LicenseHero({ lang,title,description }) {

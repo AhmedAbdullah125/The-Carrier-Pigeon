@@ -974,6 +974,15 @@ html {
   }
 }
 
+.contact-hero {
+  height: 200px;
+}
+@media screen and (max-width: 992px) {
+  .contact-hero {
+    height: 200px;
+  }
+}
+
 .license-hero-cont {
   display: flex;
   flex-direction: column;
@@ -1947,6 +1956,7 @@ select:focus-visible {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
 }
 
 @media (max-width: 768px) {
@@ -1959,14 +1969,8 @@ select:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
 }
 
-@media (min-width: 768px) {
-  .login-form-section {
-    padding: 3rem;
-  }
-}
 .login-header {
   margin-bottom: 2rem;
 }
@@ -2546,6 +2550,233 @@ select:focus-visible {
 }
 .terms-link:hover {
   color: #267a56;
+}
+
+.from-input-wrapper-textarea {
+  margin-bottom: 24px;
+}
+
+.textarea-wrapper {
+  position: relative;
+  border: 1px solid #DEE2E6;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: #F3F4F6;
+}
+.textarea-wrapper:focus-within {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.1);
+}
+.textarea-wrapper.error-textarea {
+  border-color: #EF4444;
+  background-color: #FEF2F2;
+}
+.textarea-wrapper.error-textarea:focus-within {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+.textarea-wrapper.success-textarea {
+  border-color: var(--main-color);
+  background-color: #F0FDF4;
+}
+.textarea-wrapper.success-textarea:focus-within {
+  box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.1);
+}
+
+.message-textarea {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1C1C1C;
+  background-color: transparent;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+.message-textarea::-moz-placeholder {
+  color: #6C757D;
+}
+.message-textarea::placeholder {
+  color: #6C757D;
+}
+.message-textarea:focus {
+  outline: none;
+}
+@media screen and (max-width: 768px) {
+  .message-textarea {
+    padding: 12px;
+    font-size: 14px;
+    min-height: 100px;
+  }
+}
+
+.textarea-error {
+  color: #EF4444;
+  font-size: 14px;
+  margin-top: 8px;
+  display: block;
+}
+
+.contact-content {
+  padding: 40px 0;
+}
+.contact-content h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1C1C1C;
+  margin-bottom: 8px;
+}
+@media screen and (max-width: 768px) {
+  .contact-content h1 {
+    font-size: 24px;
+  }
+}
+.contact-content .contact_subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #343A40;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact_subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+}
+.contact-content .contact-title-mes {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1C1C1C;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-title-mes {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}
+.contact-content input,
+.contact-content textarea,
+.contact-content .country-select-trigger {
+  background-color: #F3F4F6;
+}
+.contact-content .login-grid {
+  margin-bottom: 110px;
+}
+.contact-content .contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 1024px) {
+  .contact-content .contact-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+.contact-content .contact-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.contact-content .contact-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card {
+    padding: 24px 16px;
+  }
+}
+.contact-content .contact-card-icon {
+  width: 56px;
+  height: 56px;
+  background: #E8F5E9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.contact-content .contact-card-icon img {
+  width: 28px;
+  height: 28px;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .contact-content .contact-card-icon img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.contact-content .contact-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1C1C1C;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card-title {
+    font-size: 18px;
+  }
+}
+.contact-content .contact-card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card-subtitle {
+    font-size: 13px;
+  }
+}
+.contact-content .contact-card-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1C1C1C;
+  margin: 0;
+  line-height: 1.5;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card-value {
+    font-size: 14px;
+  }
+}
+.contact-content .contact-card-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.contact-content .contact-card-link:hover {
+  color: rgb(18.2848101266, 88.7151898734, 56.8860759494);
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .contact-content .contact-card-link {
+    font-size: 14px;
+  }
 }
 
 /* From Uiverse.io by AatreyuShau */

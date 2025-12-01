@@ -41,10 +41,12 @@ select {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
 }
 
 @media (max-width: 768px) {
     .login-grid {
+
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -55,14 +57,8 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
 }
 
-@media (min-width: 768px) {
-    .login-form-section {
-        padding: 3rem;
-    }
-}
 
 .login-header {
     margin-bottom: 2rem;
@@ -504,6 +500,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     @media screen and (max-width: 768px) {
         padding: 20px;
         width: 95%;
@@ -661,5 +658,243 @@ select {
 
     &:hover {
         color: #267a56;
+    }
+}
+
+
+// Textarea Wrapper Styles
+.from-input-wrapper-textarea {
+    margin-bottom: 24px;
+}
+
+.textarea-wrapper {
+    position: relative;
+    border: 1px solid #DEE2E6;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #F3F4F6;
+
+    &:focus-within {
+        border-color: $main;
+        box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.1);
+    }
+
+    &.error-textarea {
+        border-color: #EF4444;
+        background-color: #FEF2F2;
+
+        &:focus-within {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+    }
+
+    &.success-textarea {
+        border-color: $main;
+        background-color: #F0FDF4;
+
+        &:focus-within {
+            box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.1);
+        }
+    }
+}
+
+.message-textarea {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1C1C1C;
+    background-color: transparent;
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+
+    &::placeholder {
+        color: #6C757D;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 12px;
+        font-size: 14px;
+        min-height: 100px;
+    }
+}
+
+.textarea-error {
+    color: #EF4444;
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+}
+
+// Update contact content styles
+.contact-content {
+    padding: 40px 0;
+
+    h1 {
+        font-size: 32px;
+        font-weight: 600;
+        color: #1C1C1C;
+        margin-bottom: 8px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+        }
+    }
+
+    .contact_subtitle {
+        font-size: 16px;
+        font-weight: 400;
+        color: #343A40;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+    }
+
+    .contact-title-mes {
+        font-size: 24px;
+        font-weight: 500;
+        color: #1C1C1C;
+        margin-bottom: 24px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+    }
+
+    input,
+    textarea,
+    .country-select-trigger {
+        background-color: #F3F4F6;
+    }
+
+    .login-grid {
+        margin-bottom: 110px;
+    }
+
+    .contact-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 80px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+
+    .contact-card {
+        background: #FFFFFF;
+        border: 1px solid #E5E7EB;
+        border-radius: 16px;
+        padding: 32px 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 24px 16px;
+        }
+    }
+
+    .contact-card-icon {
+        width: 56px;
+        height: 56px;
+        background: #E8F5E9;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+
+        img {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 48px;
+            height: 48px;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    .contact-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1C1C1C;
+        margin: 0;
+
+        @media screen and (max-width: 768px) {
+            font-size: 18px;
+        }
+    }
+
+    .contact-card-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #6B7280;
+        margin: 0;
+
+        @media screen and (max-width: 768px) {
+            font-size: 13px;
+        }
+    }
+
+    .contact-card-value {
+        font-size: 16px;
+        font-weight: 500;
+        color: #1C1C1C;
+        margin: 0;
+        line-height: 1.5;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    .contact-card-link {
+        font-size: 16px;
+        font-weight: 500;
+        color: $main;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            color: darken(#1B8354, 10%);
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+        }
     }
 }
