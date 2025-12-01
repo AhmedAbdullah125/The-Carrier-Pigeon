@@ -66,7 +66,7 @@ export default function HomeAuctions({ lang }) {
                     link="/auctions"
                     lang={lang}
                 />
-                <div className="auctions-swiper-container">
+                <div className="auctions-swiper-container" style={{direction:"ltr"}}>
                     <Swiper
                         spaceBetween={16}
                         slidesPerView={3.5}

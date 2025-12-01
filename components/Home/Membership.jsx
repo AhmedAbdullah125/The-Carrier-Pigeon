@@ -6,6 +6,7 @@ import birds from "../../public/images/birds.png";
 import newsImg from "../../public/images/newsImg.png";
 import birdsBg from "../../public/images/birdsBg.png";
 import { t } from "@/lib/i18n";
+import Link from "next/link";
 
 export default function Membership({ lang }) {
     return (
@@ -22,7 +23,7 @@ export default function Membership({ lang }) {
                                     <div className="text">
                                         <h3>{t(lang, 'license_title')}</h3>
                                         <p>{t(lang, 'license_description')}</p>
-                                        <button>{t(lang, 'request_license')}</button>
+                                        <Link href="/license-request">{t(lang, 'request_license')}</Link >
                                     </div>
                                 </div>
                                 <div className="card">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import heroimg from "@/public/images/heroimg.png";
 import { t } from "@/lib/i18n";
 
-export default function LicenseHero({ lang }) {
+export default function LicenseHero({ lang,title,description }) {
     return (
         <div className="hero license-hero">
             <video className="video" autoPlay muted loop playsInline >
@@ -14,8 +14,8 @@ export default function LicenseHero({ lang }) {
             <div className="overlay">
                 <div className="container">
                     <div className="license-hero-cont">
-                        <h2>{t(lang, 'license_hero_title')}</h2>
-                        <p>{t(lang, 'license_hero_description')}</p>
+                        <h2>{title}</h2>
+                        <p>{description}</p>
                     </div>
                 </div>
             </div>

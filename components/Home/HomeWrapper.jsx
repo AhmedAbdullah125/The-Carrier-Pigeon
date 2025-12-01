@@ -26,6 +26,7 @@ export default function HomeWrapper() {
       <Directors lang={lang} />
       <RacingSchedule lang={lang} />
       <Membership lang={lang} />
+      <Loading />
       <HomeAuctions lang={lang} />
       <HomeCommunity lang={lang} />
       <HomePartners lang={lang} />

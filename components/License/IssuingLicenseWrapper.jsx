@@ -2,7 +2,10 @@
 import React, { useEffect, useState } from "react";
 import LicenseHero from "./LicenseHero";
 import LicenseSteps from "./LicenseSteps";
-
+import PersonalDataForm from "./PersonalDataForm";
+import DocumentsForm from "./DocumentsForm";
+import LicensSummery from "./LicensSummery";
+import { t } from "@/lib/i18n";
 export default function IssuingLicenseWrapper() {
   const [lang, setLang] = useState('ar');
   useEffect(() => {
@@ -11,22 +14,24 @@ export default function IssuingLicenseWrapper() {
     }
   }, []);
   const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(1);
+  const [progress, setProgress] = useState(0);
   const [maxProgress, setMaxProgress] = useState(6);
+  const [formData, setFormData] = useState({})
   return (
     <div className="license-content" style={{ direction: lang == "ar" ? "rtl" : "ltr" }}>
-      <LicenseHero lang={lang} />
+      <LicenseHero lang={lang} title={t(lang, 'license_hero_title')} description={t(lang, 'license_hero_description')} />
       <LicenseSteps lang={lang} step={step} progress={progress} maxProgress={maxProgress} />
+      {
+        step == 1 ?
+          <PersonalDataForm lang={lang} formData={formData} setFormData={setFormData} setStep={setStep} progress={progress} setProgress={setProgress} setMaxProgress={setMaxProgress} />
 
+          : step == 2 ?
+            <DocumentsForm lang={lang} formData={formData} setFormData={setFormData} setStep={setStep} progress={progress} setProgress={setProgress} setMaxProgress={setMaxProgress} />
 
-
-      <div className="flex items-center gap-2">
-        <button onClick={() => { setStep(step + 1), setProgress(0) }}>next</button>
-        <button onClick={() => { setStep(step - 1), setProgress(0) }}>back</button>
-
-        <button onClick={() => { setProgress(progress + 1) }}>add</button>
-        <button onClick={() => { setProgress(progress - 1) }}>remove</button>
-      </div>
+            : step == 3 ?
+              <LicensSummery lang={lang} formData={formData} setStep={setStep} progress={progress} setProgress={setProgress} setMaxProgress={setMaxProgress} />
+              : null
+      }
     </div>
   )
 }

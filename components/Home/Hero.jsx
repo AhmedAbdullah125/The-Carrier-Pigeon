@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import heroimg from "@/public/images/heroimg.png";
 import { t } from "@/lib/i18n";
+import Link from "next/link";
 
 export default function Hero({ lang }) {
     return (
@@ -18,7 +19,7 @@ export default function Hero({ lang }) {
                             <h1>{t(lang, 'hero_title')}</h1>
                             <p>{t(lang, 'hero_description')}</p>
                             <div className="btns-cont">
-                                <button className="main-btn">{t(lang, 'explore_services')}</button>
+                                <Link href="/services" className="main-btn">{t(lang, 'explore_services')}</Link>
                                 <button className="sec-btn">{t(lang, 'browse_auctions')}</button>
                             </div>
                         </div>
