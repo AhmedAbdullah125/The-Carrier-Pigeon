@@ -5,6 +5,7 @@ export default function Page() {
     return (
         <div className="img-not-found">
             <div className="img-cont flex justify-center items-center w-full">
+                not found
                 {/* <Image src={image404} alt="404" width={1000} height={500} /> */}
             </div>
         </div>

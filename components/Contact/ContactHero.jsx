@@ -1,7 +1,8 @@
 import React from "react";
 import { t } from "@/lib/i18n";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
-export default function ContactHero({ lang,title }) {
+export default function ContactHero({ lang, title, subtitle }) {
     return (
         <div className="hero contact-hero">
             <video className="video" autoPlay muted loop playsInline >
@@ -11,8 +12,14 @@ export default function ContactHero({ lang,title }) {
 
             <div className="overlay">
                 <div className="container">
-                    <div className="license-hero-cont">
-                        <h2>{title}</h2>
+                    <div className="contact-hero-cont">
+
+                        <h3>{title}</h3>
+                        {
+                            subtitle && lang == "ar" ? <ChevronLeft /> : subtitle && <ChevronRight />
+                        }
+                        {subtitle && <h2>{subtitle}</h2>}
+
                     </div>
                 </div>
             </div>

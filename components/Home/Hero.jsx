@@ -3,6 +3,7 @@ import Image from "next/image";
 import heroimg from "@/public/images/heroimg.png";
 import { t } from "@/lib/i18n";
 import Link from "next/link";
+import FancyboxWrapper from "../ui/FancyboxWrapper";
 
 export default function Hero({ lang }) {
     return (
@@ -24,7 +25,15 @@ export default function Hero({ lang }) {
                             </div>
                         </div>
                         <div className="l-side">
-                            <Image src={heroimg} alt="vid" className="img-fluid" />
+                            <FancyboxWrapper>
+                                <a
+                                    data-fancybox="blog"
+                                    href={heroimg.src}   // large image for popup
+                                    className="single-img"
+                                >
+                                    <Image src={heroimg} alt="vid" className="img-fluid" />
+                                </a>
+                            </FancyboxWrapper>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,361 @@
+.auction-details {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+
+    @media screen and (max-width: 992px) {
+        padding: 60px 0;
+    }
+
+    @media screen and (max-width: 576px) {
+        padding: 40px 0;
+    }
+}
+
+.auction-details-cont {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 22px;
+    align-items: start;
+
+    @media screen and (max-width: 1200px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Left Side - Auction Info
+.auction-info-side {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    @media screen and (max-width: 576px) {
+        padding: 24px;
+    }
+}
+
+.auction-details-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: #4f4848;
+
+    @media screen and (max-width: 576px) {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+}
+
+.auction-details-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: right;
+    color: #1C1C1C;
+
+    @media screen and (max-width: 576px) {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+}
+
+.auction-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .meta-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+    }
+
+    .meta-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+
+        &.price {
+            color: #1a7a5e;
+            font-size: 18px;
+        }
+    }
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    width: fit-content;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: white;
+    }
+}
+
+.highest-bid-section {
+    background: linear-gradient(135deg, #f0f9f6 0%, #e8f5f1 100%);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+
+    .bid-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 12px;
+    }
+
+    .bid-amount {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a7a5e;
+
+        @media screen and (max-width: 576px) {
+            font-size: 28px;
+        }
+    }
+}
+
+.auction-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    button {
+        width: 100%;
+        padding: 14px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        @media screen and (max-width: 576px) {
+            font-size: 14px;
+            padding: 12px 20px;
+        }
+    }
+
+    .participate-btn {
+        background-color: #1a7a5e;
+        color: white;
+
+        &:hover {
+            background-color: #166845;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(26, 122, 94, 0.3);
+        }
+    }
+
+    .terms-btn {
+        background-color: transparent;
+        color: #666;
+        border: 1px solid #ddd;
+
+        &:hover {
+            background-color: #f8f9fa;
+            border-color: #1a7a5e;
+            color: #1a7a5e;
+        }
+    }
+}
+
+// Right Side - Gallery
+.auction-gallery-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-image-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-auction-image-link {
+    display: block;
+    cursor: pointer;
+}
+
+.main-auction-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+
+    @media screen and (max-width: 768px) {
+        max-height: 400px;
+    }
+}
+
+.auction-countdown-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px 32px;
+    z-index: 10;
+
+    @media screen and (max-width: 576px) {
+        padding: 12px 24px;
+        bottom: 16px;
+    }
+}
+
+.countdown-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.countdown-segment {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    @media screen and (max-width: 576px) {
+        padding: 6px 12px;
+    }
+}
+
+.countdown-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    font-family: monospace;
+
+    @media screen and (max-width: 576px) {
+        font-size: 24px;
+    }
+}
+
+.countdown-separator {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+
+    @media screen and (max-width: 576px) {
+        font-size: 24px;
+    }
+}
+
+.auction-thumbs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+.auction-detail-thumb {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    aspect-ratio: 4/3;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    &.active {
+        border-color: #1a7a5e;
+        box-shadow: 0 8px 24px rgba(26, 122, 94, 0.3);
+    }
+
+    .thumb-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.thumb-eye-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 42, 30, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.thumb-eye-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.thumb-eye-icon {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 576px) {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.hidden-fancybox-link {
+    display: none;
+}

@@ -203,7 +203,12 @@
     "contact_email": "info@pigon.sa",
     "phone_contact_title": "للتواصل عبر الجوال",
     "phone_contact_subtitle": "رقم الجوال الخاص بنا",
-    "phone_number_display": "+966 138 844 144"
+    "phone_number_display": "+966 138 844 144",
+    "auctions_hero_title": "منصة المزادات الرسمية للحمام الزاجل في المملكة العربيه السعوديه",
+    "auctions_hero_description": "بإشراف جهات موثوقة، نقدّم لكم مزادات معتمدة للحمام الزاجل وفق أعلى معايير النزاهة والشفافية. استمتع بتجربة مزايدة آمنة، مع تفاصيل دقيقة لكل مزاد وسجلات موثقة للحمام، وضمان حقوق جميع المشاركين",
+    "auctions_hint": "يبدأ قريبًا",
+    "auctions_title": "المزادات الحاليه",
+    "auctions_subtitle": "تفاصيل المزاد"
   },
   "en": {
     "welcome": "Welcome to ",
@@ -405,6 +410,9 @@
     "contact_email": "info@pigon.sa",
     "phone_contact_title": "Contact via Mobile",
     "phone_contact_subtitle": "Our Mobile Number",
-    "phone_number_display": "+966 138 844 144"
+    "phone_number_display": "+966 138 844 144",
+    "auctions_hero_title": "The official auction platform for racing pigeons in the Kingdom of Saudi Arabia",
+    "auctions_hero_description": "Under the supervision of trusted authorities, we offer certified pigeon auctions adhering to the highest standards of integrity and transparency. Enjoy a secure bidding experience, with detailed information for each auction, documented records for the pigeons, and guaranteed rights for all participants.",
+    "auctions_hint": "Starting Soon"
   }
 }

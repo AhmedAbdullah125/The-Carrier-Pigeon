@@ -68,6 +68,7 @@
         z-index: 2;
         opacity: 1;
         transition: opacity 0.3s ease;
+
         &:hover {
             opacity: 0;
         }
@@ -108,6 +109,29 @@
         img {
             width: 20px;
             height: 20px;
+        }
+    }
+
+    .auction-hint {
+        position: absolute;
+        top: 16px;
+        inset-inline-start: 16px;
+        width: fit-content;
+        height: 32px;
+        border-radius: 5px;
+        background-color:#EE9510;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        transition: background-color 0.3s ease;
+        z-index: 10;
+        color: $white;
+        font-size: 16px;
+        font-weight: 400;
+        &:hover {
+            background-color: darken(#EE9510, 5%);
         }
     }
 
@@ -170,7 +194,6 @@
 
     .auction-header {
         display: flex;
-        align-items: center;
         justify-content: space-between;
         gap: 12px;
 
@@ -276,6 +299,70 @@
             .auction-title {
                 font-size: 18px;
             }
+        }
+    }
+
+}
+
+.auctions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.switch-toggle-container {
+    margin: 80px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: $black;
+    padding: 6px;
+    height: 80px;
+    border-radius: 40px;
+    width: fit-content;
+
+    button {
+        border: 1px solid $white;
+        color: $white;
+        min-width: 275px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        border-radius: 32px;
+        font-size: 20px;
+        overflow: hidden;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &.active {
+            color: $white;
+            padding: 4px;
+            border-color: $main;
+
+            span {
+                background-color: $main;
+            }
+
+        }
+
+        span {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
     }
 }
