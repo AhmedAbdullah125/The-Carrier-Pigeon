@@ -4,6 +4,10 @@
     overflow: hidden;
     background-color: #092a1e; // fallback تحت الفيديو
 
+    @media screen and (max-width: 1700px) {
+        height: 700px;
+    }
+
     video {
         width: 100%;
         height: 100%;
@@ -66,7 +70,7 @@
                 height: 360px;
             }
 
-            @media screen and (max-width: 576px) {
+            @media screen and (max-width: 767px) {
                 width: 280px;
                 height: 280px;
             }
@@ -190,7 +194,7 @@
 }
 
 .contact-hero {
-    height: 200px;
+    height: 150px;
 
     @media screen and (max-width: 992px) {
         height: 200px;
@@ -244,9 +248,11 @@
     max-width: 1150px;
     margin: 0 auto;
     gap: 16px;
-    svg{
+
+    svg {
         color: white;
     }
+
     h2,
     h3 {
         font-size: 32px;
@@ -256,7 +262,7 @@
         text-align: center;
 
         @media screen and (max-width: 992px) {
-            font-size: 24px;
+            font-size: 20px;
         }
     }
 
@@ -266,8 +272,8 @@
 }
 
 /* Auctions hero specific */
-.auctions-hero {
-}
+.auctions-hero {}
+
 .thumbs-row {
     display: flex;
     gap: 16px;
@@ -302,7 +308,7 @@
 
     @media screen and (max-width: 992px) {
 
-        width: 114px;
+        width: 84px;
         height: 76px;
     }
 
@@ -356,6 +362,10 @@
     @media screen and (max-width: 992px) {
         width: 360px;
         height: 360px;
+    }
+
+    @media screen and (max-width: 767px) {
+        height: 240px;
     }
 }
 

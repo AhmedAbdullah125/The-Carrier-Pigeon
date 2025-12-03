@@ -208,7 +208,18 @@
     "auctions_hero_description": "بإشراف جهات موثوقة، نقدّم لكم مزادات معتمدة للحمام الزاجل وفق أعلى معايير النزاهة والشفافية. استمتع بتجربة مزايدة آمنة، مع تفاصيل دقيقة لكل مزاد وسجلات موثقة للحمام، وضمان حقوق جميع المشاركين",
     "auctions_hint": "يبدأ قريبًا",
     "auctions_title": "المزادات الحاليه",
-    "auctions_subtitle": "تفاصيل المزاد"
+    "auctions_subtitle": "تفاصيل المزاد",
+    "auction_details_subtitle": "تفاصيل المزاد",
+    "auction_start_date": "تاريخ بدايه المزاد",
+    "auction_end_date": "تاريخ انتهاء المزاد",
+    "auction_duration": "مده المزاد",
+    "auction_start_time": "وقت بدايه المزاد",
+    "auction_initial_value": "القيمه الابتدايه للمزاد",
+    "auction_status": "حاله المزاد",
+    "auction_status_ongoing": "جاري",
+    "auction_current_price": "السعر الحالي للمزاد",
+    "auction_subscribe": "الاشتراك بالمزاد",
+    "auction_terms_agreement": "اوافق علي الشروط والاحكام"
   },
   "en": {
     "welcome": "Welcome to ",
@@ -413,6 +424,17 @@
     "phone_number_display": "+966 138 844 144",
     "auctions_hero_title": "The official auction platform for racing pigeons in the Kingdom of Saudi Arabia",
     "auctions_hero_description": "Under the supervision of trusted authorities, we offer certified pigeon auctions adhering to the highest standards of integrity and transparency. Enjoy a secure bidding experience, with detailed information for each auction, documented records for the pigeons, and guaranteed rights for all participants.",
-    "auctions_hint": "Starting Soon"
+    "auctions_hint": "Starting Soon",
+    "auction_details_subtitle": "Auction Details",
+    "auction_start_date": "Auction Start Date",
+    "auction_end_date": "Auction End Date",
+    "auction_duration": "Auction Duration",
+    "auction_start_time": "Auction Start Time",
+    "auction_initial_value": "Initial Auction Value",
+    "auction_status": "Auction Status",
+    "auction_status_ongoing": "Ongoing",
+    "auction_current_price": "Current Auction Price",
+    "auction_subscribe": "Subscribe to Auction",
+    "auction_terms_agreement": "I agree to the terms and conditions"
   }
 }

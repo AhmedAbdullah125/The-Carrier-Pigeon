@@ -4,10 +4,10 @@ import Link from "next/link"
 import shareIcon from '@/public/images/share.svg'
 import SARIcon from '@/public/images/SAR.svg'
 import { t } from "@/lib/i18n"
-export default function AuctionCard({auction, lang}) {
+export default function AuctionCard({ auction, lang }) {
 
     return (
-        <Link href={`/auction/${auction?.id}`} className="auction-card">
+        <div className="auction-card" style={{ direction: lang == "ar" ? "rtl" : "ltr" }}>
             <div className="auction-image-container">
                 <Image
                     src={auction.image}
@@ -45,6 +45,7 @@ export default function AuctionCard({auction, lang}) {
 
             <div className="auction-content">
                 <div className="auction-header">
+                    <h3 className="auction-title">{auction.name}</h3>
                     <div className="pricing-cont">
                         <div className="auction-price">
                             <span>{auction.price}</span>
@@ -52,15 +53,26 @@ export default function AuctionCard({auction, lang}) {
                         </div>
                         <p className="auction-subtitle">{auction.subtitle}</p>
                     </div>
-                    <h3 className="auction-title">{auction.name}</h3>
                 </div>
 
                 <p className="auction-description">{auction.description}</p>
+                        {
+                            auction.numberOfBids &&
+                            <div className="bids-cont">
+                                <div className="text">
+                                    <span className="title">عدد المزايدات: {auction.numberOfBids}</span>
+                                    <span className="time">آخر مزايدة: منذ 5 دقائق</span>
+                                </div>
+                                <div className="progress-cont">
+                                    <div className="progress" style={{ width: "50%" }}></div>
+                                </div>
+                            </div>
+                        }
 
-                <Link href={`/auctions/${auction?.id}`} className="auction-btn">
+                <Link href={`/auction/${auction?.id}`} className="auction-btn">
                     {t(lang, "view_auction_details")}
                 </Link>
             </div>
-        </Link>
+        </div>
     )
 }
