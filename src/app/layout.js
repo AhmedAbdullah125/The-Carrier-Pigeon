@@ -17,7 +17,7 @@ export async function generateMetadata() {
       siteName: 'TheCarrierPigeon',
       images: [
         {
-          url: 'https://the-carrier-pigeon.vercel.app/_next/static/media/logo.bc6bbe03.svg',
+          url: 'http://localhost:3000/_next/static/media/15.468e1ad0.png',
           width: 1200,
           height: 630,
           alt: 'TheCarrierPigeon',
