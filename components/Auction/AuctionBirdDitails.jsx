@@ -1,6 +1,4 @@
 import React from "react";
-import { t } from "@/lib/i18n";
-import { id } from "date-fns/locale";
 import birdsBg from "@/public/images/birdsBg.png";
 import hummer from "@/public/images/hummer.gif";
 import Image from "next/image";
