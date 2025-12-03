@@ -5,6 +5,7 @@ import ClientProviders from '@/src/utils/providers/ClientProviders';
 import Footer from '@/components/Footer/Footer';
 // import logo from '@/public/images/blue-logo.svg';
 
+
 export async function generateMetadata() {
   return {
     title: 'TheCarrierPigeon',
@@ -17,7 +18,7 @@ export async function generateMetadata() {
       siteName: 'TheCarrierPigeon',
       images: [
         {
-          url: 'http://localhost:3000/_next/static/media/15.468e1ad0.png',
+          url: 'https://i.pinimg.com/736x/19/ca/c6/19cac615a37cf98dac18e21293e38e68.jpg',
           width: 1200,
           height: 630,
           alt: 'TheCarrierPigeon',
